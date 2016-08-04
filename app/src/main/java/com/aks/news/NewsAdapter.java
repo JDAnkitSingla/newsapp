@@ -46,11 +46,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), "Position : " + position, Toast.LENGTH_SHORT).show();
-
-                Intent intent = new Intent(view.getContext(), DetailActivity.class);
-                intent.putExtra("url", news.getDetailUrl());
-
-                view.getContext().startActivity(intent);
+                DetailActivity.start(view.getContext(), position);
             }
         });
     }
