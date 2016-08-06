@@ -11,10 +11,16 @@
     >
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/activity_main_sourceview"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        />
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/activity_main_newsitems"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_main_sourceview"
         />
     <ProgressBar
         android:id="@+id/activity_main_progress"

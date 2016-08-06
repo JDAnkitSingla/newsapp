@@ -1,6 +1,5 @@
-package com.aks.news;
+package com.aks.news.adapter;
 
-import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,7 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.aks.news.object.NewsObject;
+import com.aks.news.DetailActivity;
+import com.aks.news.R;
+import com.aks.news.object.Article;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
@@ -21,9 +22,9 @@ import java.util.List;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
 
-    private List<NewsObject> objectList;
+    private List<Article> objectList;
 
-    public NewsAdapter(List<NewsObject> objectList) {
+    public NewsAdapter(List<Article> objectList) {
         this.objectList = objectList;
     }
 
@@ -37,11 +38,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
     public void onBindViewHolder(NewsHolder holder, final int position) {
         if(objectList == null)
             return;
-        final NewsObject news = objectList.get(position);
-        Glide.with(holder.imageView.getContext()).load(news.getImageUrl()).into(holder.imageView);
+        final Article news = objectList.get(position);
+        Glide.with(holder.imageView.getContext()).load(news.getUrlToImage()).into(holder.imageView);
         holder.title.setText(news.getTitle());
-        holder.date.setText(news.getDate());
-        holder.description.setText(news.getDesc());
+        holder.date.setText(news.getPublishedAt());
+        holder.description.setText(news.getDescription());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
